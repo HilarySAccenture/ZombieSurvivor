@@ -52,6 +52,14 @@ namespace ZombieSurvivor.Tests
             
             survivor.Wounds.ShouldBe(2);
         }
-        
+
+        [Fact]
+        public void CanAcquireOnePieceOfEquipment()
+        {
+            var equipment = new Equipment();
+            survivor.AcquireEquipment(equipment);
+
+            survivor.Arsenal.Count.ShouldBe(1);
+        }
     }
 }
