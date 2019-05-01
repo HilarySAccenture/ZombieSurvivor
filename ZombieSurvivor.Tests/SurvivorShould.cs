@@ -75,6 +75,20 @@ namespace ZombieSurvivor.Tests
             
             survivor.Arsenal.Count.ShouldBe(5);
         }
+
+        [Fact]
+        public void LosesOneEquipmentCarryingCapacityWhenWoundedOnce()
+        {
+            var katana = new Katana();
+            var carryingCapacity = 5;
+            for (var i = 0; i < carryingCapacity; i++)
+            {
+                survivor.AcquireEquipment(katana);
+            }
+            survivor.Injure();
+            
+            survivor.Arsenal.Count.ShouldBe(4);   
+        }
         
         
     }
