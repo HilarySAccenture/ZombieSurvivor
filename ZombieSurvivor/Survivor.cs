@@ -8,7 +8,7 @@ namespace ZombieSurvivor
         public int Wounds;
         public List<IEquipment> Arsenal { get; set; }
 
-        public Survivor(string name, int wounds = 0, List<IEquipment> arsenal = null)
+        public Survivor(string name, int wounds = 0)
         {
             Name = name;
             Wounds = wounds;

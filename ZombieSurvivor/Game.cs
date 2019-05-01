@@ -4,14 +4,31 @@ namespace ZombieSurvivor
 {
     public class Game
     {
-        public Dictionary<Survivor,string> SurvivorGroup;
-        public Game(Dictionary<Survivor, string> survivorGroup = null)
+        public List<Survivor> SurvivorGroup;
+
+        public Game()
         {
-            SurvivorGroup = new Dictionary<Survivor, string>();
+            SurvivorGroup = new List<Survivor>();
         }
+
         public void AddSurvivor(Survivor survivor)
         {
-            SurvivorGroup.Add(survivor, survivor.Name);
+            if (SurvivorGroup.Count == 0)
+            {
+                SurvivorGroup.Add(survivor);
+            }
+            else
+            {
+                foreach (var person in SurvivorGroup)
+                {
+                    if (person.Name != survivor.Name)
+                    {
+                        SurvivorGroup.Add(survivor);
+                    }
+                
+                }
+            }
+            
         }
     }
 }
