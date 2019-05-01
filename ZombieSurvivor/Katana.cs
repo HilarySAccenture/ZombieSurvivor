@@ -4,7 +4,6 @@ namespace ZombieSurvivor
 {
     public class Katana : IEquipment
     {
-       
-      
+         
     }
 }

@@ -22,11 +22,9 @@ namespace ZombieSurvivor
                 Wounds++;
             }
 
-            if (Arsenal.Count > 0)
-            {
-                int lastEquipment = Arsenal.Count - 1;
-                Arsenal.RemoveAt(lastEquipment);
-            }
+            if (Arsenal.Count <= 0) return;
+            var lastEquipment = Arsenal.Count - 1;
+            Arsenal.RemoveAt(lastEquipment);
         }
         public bool IsAlive()
         {

@@ -8,6 +8,7 @@ namespace ZombieSurvivor.Tests
     public class SurvivorShould
     {
         Survivor survivor = new Survivor("Sam", 0);
+        Katana katana = new Katana();
 
         [Fact]
         public void HaveOneWoundWhenInjuredOnce()
@@ -57,8 +58,6 @@ namespace ZombieSurvivor.Tests
         [Fact]
         public void CanAcquireOnePieceOfEquipment()
         {
-            var katana = new Katana();
-
             survivor.AcquireEquipment(katana);
 
             survivor.Arsenal.Count.ShouldBe(1);
@@ -67,7 +66,6 @@ namespace ZombieSurvivor.Tests
         [Fact]
         public void CanAcquireNoMoreThanFivePiecesOfEquipmentWhenZeroWounds()
         {
-            var katana = new Katana();
             for (var i = 0; i < 10; i++)
             {
                 survivor.AcquireEquipment(katana);
@@ -79,7 +77,6 @@ namespace ZombieSurvivor.Tests
         [Fact]
         public void LosesOneEquipmentCarryingCapacityWhenWoundedOnce()
         {
-            var katana = new Katana();
             var carryingCapacity = 5;
             for (var i = 0; i < carryingCapacity; i++)
             {
@@ -89,6 +86,7 @@ namespace ZombieSurvivor.Tests
             
             survivor.Arsenal.Count.ShouldBe(4);   
         }
+        
         
         
     }
