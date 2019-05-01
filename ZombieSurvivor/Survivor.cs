@@ -4,13 +4,13 @@ namespace ZombieSurvivor
 {
     public class Survivor
     {
-        private string _name;
+        public string Name;
         public int Wounds;
         public List<IEquipment> Arsenal { get; set; }
 
         public Survivor(string name, int wounds = 0, List<IEquipment> arsenal = null)
         {
-            _name = name;
+            Name = name;
             Wounds = wounds;
             Arsenal = new List<IEquipment>();
 
