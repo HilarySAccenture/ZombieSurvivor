@@ -1,6 +1,6 @@
 namespace ZombieSurvivor
 {
-    public class Equipment
+    public class BrassKnuckles : IEquipment
     {
         
     }

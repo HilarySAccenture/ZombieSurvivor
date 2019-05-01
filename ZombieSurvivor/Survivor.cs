@@ -6,9 +6,9 @@ namespace ZombieSurvivor
     {
         private string _name;
         public int Wounds;
-        public List<Equipment> Arsenal { get; set; }
+        public List<IEquipment> Arsenal { get; set; }
 
-        public Survivor(string name, int wounds = 0, List<Equipment> arsenal = null)
+        public Survivor(string name, int wounds = 0, List<IEquipment> arsenal = null)
         {
             _name = name;
             Wounds = wounds;
@@ -26,7 +26,7 @@ namespace ZombieSurvivor
             return (Wounds < 2);
         }
 
-        public void AcquireEquipment(Equipment equipment)
+        public void AcquireEquipment(IEquipment equipment)
         {
             Arsenal.Add(equipment);
     }

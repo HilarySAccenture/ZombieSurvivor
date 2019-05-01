@@ -56,8 +56,8 @@ namespace ZombieSurvivor.Tests
         [Fact]
         public void CanAcquireOnePieceOfEquipment()
         {
-            var equipment = new Equipment();
-            survivor.AcquireEquipment(equipment);
+            var brassKnuckles = new BrassKnuckles();
+            survivor.AcquireEquipment(brassKnuckles);
 
             survivor.Arsenal.Count.ShouldBe(1);
         }
