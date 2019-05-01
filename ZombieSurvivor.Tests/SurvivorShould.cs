@@ -1,3 +1,4 @@
+using System.Diagnostics.SymbolStore;
 using ZombieSurvivor;
 using Shouldly;
 using Xunit;
@@ -6,11 +7,10 @@ namespace ZombieSurvivor.Tests
 {
     public class SurvivorShould
     {
+        Survivor survivor = new Survivor("Sam", 0);
         [Fact]
         public void HaveOneWoundWhenInjuredOnce()
         {
-            var survivor = new Survivor("Sam", 0);
-
             survivor.Injure();
 
             survivor.Wounds.ShouldBe(1);
@@ -19,12 +19,39 @@ namespace ZombieSurvivor.Tests
         [Fact]
         public void HaveTwoWoundsWhenInjuredTwice()
         {
-            var survivor = new Survivor("Sam",0);
-            
             survivor.Injure();
             survivor.Injure();
             
             survivor.Wounds.ShouldBe(2);
         }
+
+        [Fact]
+        public void BeAliveWithOneWound()
+        {
+            survivor.Injure();
+
+            survivor.IsAlive().ShouldBeTrue();
+        }
+
+        [Fact]
+        public void BeDeadAfterBeingWoundedTwice()
+        {
+            survivor.Injure();
+            survivor.Injure();
+            
+            survivor.IsAlive().ShouldBeFalse();
+        }
+
+        [Fact]
+        public void CannotHaveMoreThanTwoWounds()
+        {
+            for (var i = 0; i < 3; i++)
+            {
+                survivor.Injure();
+            }
+            
+            survivor.Wounds.ShouldBe(2);
+        }
+        
     }
 }

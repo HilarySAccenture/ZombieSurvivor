@@ -4,6 +4,7 @@ namespace ZombieSurvivor
     {
         private string _name;
         public int Wounds { get; set; }
+
         public Survivor(string name, int wounds = 0)
         {
             _name = name;
@@ -12,9 +13,15 @@ namespace ZombieSurvivor
         }
         public void Injure()
         {
-            Wounds++;
+            if (Wounds < 2)
+            {
+                Wounds++;
+            }
         }
-
+        public bool IsAlive()
+        {
+            return (Wounds < 2);
+        }
         
     }
 }
