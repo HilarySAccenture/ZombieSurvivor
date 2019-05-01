@@ -12,6 +12,7 @@ namespace ZombieSurvivor
         {
             _name = name;
             Wounds = wounds;
+            Arsenal = new List<IEquipment>();
 
         }
         public void Injure()
@@ -29,8 +30,11 @@ namespace ZombieSurvivor
         public void AcquireEquipment(IEquipment equipment)
         {
             Arsenal.Add(equipment);
-    }
+            
         }
+     
+    }
+        
 
    
 }

@@ -8,6 +8,7 @@ namespace ZombieSurvivor.Tests
     public class SurvivorShould
     {
         Survivor survivor = new Survivor("Sam", 0);
+
         [Fact]
         public void HaveOneWoundWhenInjuredOnce()
         {
@@ -21,7 +22,7 @@ namespace ZombieSurvivor.Tests
         {
             survivor.Injure();
             survivor.Injure();
-            
+
             survivor.Wounds.ShouldBe(2);
         }
 
@@ -38,7 +39,7 @@ namespace ZombieSurvivor.Tests
         {
             survivor.Injure();
             survivor.Injure();
-            
+
             survivor.IsAlive().ShouldBeFalse();
         }
 
@@ -49,15 +50,16 @@ namespace ZombieSurvivor.Tests
             {
                 survivor.Injure();
             }
-            
+
             survivor.Wounds.ShouldBe(2);
         }
 
         [Fact]
         public void CanAcquireOnePieceOfEquipment()
         {
-            var brassKnuckles = new BrassKnuckles();
-            survivor.AcquireEquipment(brassKnuckles);
+            var katana = new Katana();
+
+            survivor.AcquireEquipment(katana);
 
             survivor.Arsenal.Count.ShouldBe(1);
         }
