@@ -29,8 +29,10 @@ namespace ZombieSurvivor
 
         public void AcquireEquipment(IEquipment equipment)
         {
-            Arsenal.Add(equipment);
-            
+            if (Arsenal.Count < 5)
+            {
+                Arsenal.Add(equipment);
+            }
         }
      
     }

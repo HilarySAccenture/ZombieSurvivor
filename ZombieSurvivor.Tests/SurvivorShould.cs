@@ -63,5 +63,19 @@ namespace ZombieSurvivor.Tests
 
             survivor.Arsenal.Count.ShouldBe(1);
         }
+
+        [Fact]
+        public void CanAcquireNoMoreThanFivePiecesOfEquipmentWhenZeroWounds()
+        {
+            var katana = new Katana();
+            for (var i = 0; i < 10; i++)
+            {
+                survivor.AcquireEquipment(katana);
+            }
+            
+            survivor.Arsenal.Count.ShouldBe(5);
+        }
+        
+        
     }
 }
