@@ -9,8 +9,10 @@ namespace ZombieSurvivor.Tests
     public class GameShould
     {
         Game game = new Game();
+
+        
         [Fact]
-        public void CanAddOneSurvivorToGame()
+        public void AddOneSurvivorToGame()
         {
             var survivor = new Survivor("Sam");
             game.AddSurvivor(survivor);
@@ -18,7 +20,13 @@ namespace ZombieSurvivor.Tests
             game.Players.Count.ShouldBe(1);
             game.Players.First().Name.ShouldBe("Sam");
         }
-
+        
+        [Fact]
+        public void GameStartsWithZeroPlayersByDefault()
+        {
+            game.Players.Count.ShouldBe(0);
+        }        
+        
         [Fact]
         public void CanAddTwoSurvivorsToGame()
         {
@@ -44,6 +52,14 @@ namespace ZombieSurvivor.Tests
             
             game.Players.Count.ShouldBe(1);
         }
+
+//        [Fact(Skip = "asd")]
+//        public void KnowWhenAllPlayersDead()
+//        {
+//            var result = game.AllPlayersAreDead();
+//            
+//            result.ShouldBeTrue();
+//        }
         
     }
 }
