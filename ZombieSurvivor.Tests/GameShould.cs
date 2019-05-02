@@ -53,13 +53,24 @@ namespace ZombieSurvivor.Tests
             game.Players.Count.ShouldBe(1);
         }
 
-//        [Fact(Skip = "asd")]
-//        public void KnowWhenAllPlayersDead()
-//        {
-//            var result = game.AllPlayersAreDead();
-//            
-//            result.ShouldBeTrue();
-//        }
-        
+        [Fact] public void KnowIfAllPlayersAreDead()
+        {
+            var survivor1 = new Survivor("Sam");
+            var survivor2 = new Survivor("Robin");
+
+            game.AddSurvivor(survivor1);
+            game.AddSurvivor(survivor2);
+      
+            KillSurvivor(survivor1);
+            KillSurvivor(survivor2);
+
+            game.AllPlayersAreDead().ShouldBeTrue();
+        }
+
+        private static void KillSurvivor(Survivor survivor)
+        {
+            survivor.Injure();
+            survivor.Injure();
+        }
     }
 }

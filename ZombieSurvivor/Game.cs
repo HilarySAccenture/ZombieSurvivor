@@ -31,12 +31,13 @@ namespace ZombieSurvivor
             
         }
 
-//        public bool AllPlayersAreDead()
-//        {
-//            foreach (var person in Players)
-//            {
-//                if(person.IsAlive())
-//            }
-//        }
+        public bool AllPlayersAreDead()
+        {
+            foreach (var person in Players)
+            {
+                return !person.IsAlive();
+            }
+            return false;
+        }
     }
 }
