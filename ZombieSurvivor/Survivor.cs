@@ -4,9 +4,9 @@ namespace ZombieSurvivor
 {
     public class Survivor
     {
-        public string Name;
+        public readonly string Name;
         public int Wounds;
-        public List<IEquipment> Arsenal { get; set; }
+        public List<IEquipment> Arsenal { get; }
 
         public Survivor(string name, int wounds = 0)
         {

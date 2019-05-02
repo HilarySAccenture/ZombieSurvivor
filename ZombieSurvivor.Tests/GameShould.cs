@@ -8,43 +8,41 @@ namespace ZombieSurvivor.Tests
 {
     public class GameShould
     {
+        Game game = new Game();
         [Fact]
         public void CanAddOneSurvivorToGame()
         {
-            var game = new Game();
             var survivor = new Survivor("Sam");
             game.AddSurvivor(survivor);
 
-            game.SurvivorGroup.Count.ShouldBe(1);
-            game.SurvivorGroup.First().Name.ShouldBe("Sam");
+            game.Players.Count.ShouldBe(1);
+            game.Players.First().Name.ShouldBe("Sam");
         }
 
         [Fact]
         public void CanAddTwoSurvivorsToGame()
         {
-            var game = new Game();
             var survivor1 = new Survivor("Sam");
             var survivor2 = new Survivor("Robin");
             
             game.AddSurvivor(survivor1);
             game.AddSurvivor(survivor2);
             
-            game.SurvivorGroup.Count.ShouldBe(2);
-            game.SurvivorGroup.First().Name.ShouldBe("Sam");
-            game.SurvivorGroup[1].Name.ShouldBe("Robin");
+            game.Players.Count.ShouldBe(2);
+            game.Players.First().Name.ShouldBe("Sam");
+            game.Players[1].Name.ShouldBe("Robin");
         }
 
         [Fact]
         public void CannotHaveTwoSurvivorsWithTheSameName()
         {
-            var game = new Game();
             var survivor1 = new Survivor("Sam");
             var survivor2 = new Survivor("Sam");
             
             game.AddSurvivor(survivor1);
             game.AddSurvivor(survivor2);
             
-            game.SurvivorGroup.Count.ShouldBe(1);
+            game.Players.Count.ShouldBe(1);
         }
         
     }

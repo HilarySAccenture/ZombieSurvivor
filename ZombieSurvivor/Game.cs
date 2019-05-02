@@ -4,28 +4,28 @@ namespace ZombieSurvivor
 {
     public class Game
     {
-        public List<Survivor> SurvivorGroup;
+        private List<Survivor> _players = new List<Survivor>();
 
-        public Game()
+        public List<Survivor> Players
         {
-            SurvivorGroup = new List<Survivor>();
-        }
+            get => _players;
+            set => _players = value;
+        }        
 
         public void AddSurvivor(Survivor survivor)
         {
-            if (SurvivorGroup.Count == 0)
+            if (Players.Count == 0)
             {
-                SurvivorGroup.Add(survivor);
+                Players.Add(survivor);
             }
             else
             {
-                foreach (var person in SurvivorGroup)
+                for (var i = Players.Count - 1; i >= 0; i--)
                 {
-                    if (person.Name != survivor.Name)
+                    if (Players[i].Name != survivor.Name)
                     {
-                        SurvivorGroup.Add(survivor);
+                        Players.Add(survivor);
                     }
-                
                 }
             }
             
