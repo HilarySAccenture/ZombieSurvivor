@@ -67,6 +67,20 @@ namespace ZombieSurvivor.Tests
             game.AllPlayersAreDead().ShouldBeTrue();
         }
 
+        [Fact]
+        public void ReturnFalseIfNotAllPlayersAreDead()
+        {
+            var survivor1 = new Survivor("Sam");
+            var survivor2 = new Survivor("Robin");
+
+            game.AddSurvivor(survivor1);
+            game.AddSurvivor(survivor2);
+      
+            KillSurvivor(survivor1);
+
+            game.AllPlayersAreDead().ShouldBeFalse();
+        }
+        
         private static void KillSurvivor(Survivor survivor)
         {
             survivor.Injure();

@@ -35,9 +35,13 @@ namespace ZombieSurvivor
         {
             foreach (var person in Players)
             {
-                return !person.IsAlive();
+                if (person.IsAlive())
+                {
+                    return false;
+                }
             }
-            return false;
+
+            return true;
         }
     }
 }
