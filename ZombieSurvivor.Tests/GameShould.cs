@@ -77,8 +77,9 @@ namespace ZombieSurvivor.Tests
             game.AddSurvivor(survivor2);
       
             KillSurvivor(survivor1);
-
-            game.AllPlayersAreDead().ShouldBeFalse();
+            
+            var result = game.AllPlayersAreDead();
+            result.ShouldBeFalse();
         }
         
         private static void KillSurvivor(Survivor survivor)

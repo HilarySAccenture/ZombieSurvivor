@@ -32,7 +32,8 @@ namespace ZombieSurvivor.Tests
         {
             survivor.Injure();
 
-            survivor.IsAlive().ShouldBeTrue();
+            var result = survivor.IsDead();
+            result.ShouldBeFalse();
         }
 
         [Fact]
@@ -41,7 +42,8 @@ namespace ZombieSurvivor.Tests
             survivor.Injure();
             survivor.Injure();
 
-            survivor.IsAlive().ShouldBeFalse();
+            var result = survivor.IsDead();
+            result.ShouldBeTrue();            
         }
 
         [Fact]
@@ -85,9 +87,6 @@ namespace ZombieSurvivor.Tests
             survivor.Injure();
             
             survivor.Arsenal.Count.ShouldBe(4);   
-        }
-        
-        
-        
+        } 
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ZombieSurvivor
 {
@@ -10,7 +11,7 @@ namespace ZombieSurvivor
         {
             get => _players;
             set => _players = value;
-        }        
+        }
 
         public void AddSurvivor(Survivor survivor)
         {
@@ -28,20 +29,13 @@ namespace ZombieSurvivor
                     }
                 }
             }
-            
         }
 
         public bool AllPlayersAreDead()
         {
-            foreach (var person in Players)
-            {
-                if (person.IsAlive())
-                {
-                    return false;
-                }
-            }
+            var deadPlayers = Players.Where(player => player.IsDead());
 
-            return true;
+            return (deadPlayers.Count() == Players.Count);
         }
     }
 }
