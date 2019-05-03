@@ -104,7 +104,17 @@ namespace ZombieSurvivor.Tests
             
             survivor.Level.ShouldBe("Blue");
         }
-      
+
+        [Fact]
+        public void ShouldBeAtLevelBlueWithSixExperience()
+        {
+            for (var i = 0; i < 7; i++)
+            {
+                survivor.KillZombie();
+            }
+            
+            survivor.Level.ShouldBe("Yellow");
+        }
        
     }
 }

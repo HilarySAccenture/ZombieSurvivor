@@ -13,13 +13,13 @@ namespace ZombieSurvivor
         public string Level { get; set; }
 
 
-        public Survivor(string name, int wounds = 0, int experience = 0, string level = null)
+        public Survivor(string name, int wounds = 0, int experience = 0)
         {
             Name = name;
             Wounds = wounds;
             Arsenal = new List<IEquipment>();
             Experience = experience;
-            Level = AdvanceLevel();
+            Level = "Blue";
 
         }
 
@@ -51,14 +51,14 @@ namespace ZombieSurvivor
 
             AdvanceLevel();
         }
-
-        private string AdvanceLevel()
+//    could this be designed better? as far as naming...responsibility? 
+        private void AdvanceLevel()
         {
-            if (Experience >= 6)
+            if (Experience > 6)
             {
-                return "Yellow";
+                Level = "Yellow";
             }
-            return "Blue";
+           
         }
     }
 }
