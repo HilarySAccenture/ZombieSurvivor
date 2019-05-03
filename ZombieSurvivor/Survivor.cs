@@ -10,13 +10,16 @@ namespace ZombieSurvivor
         public int Wounds { get; private set; }
         public List<IEquipment> Arsenal { get; }
         public int Experience { get; set; }
+        public string Level { get; set; }
 
-        public Survivor(string name, int wounds = 0, int experience = 0)
+
+        public Survivor(string name, int wounds = 0, int experience = 0, string level = null)
         {
             Name = name;
             Wounds = wounds;
             Arsenal = new List<IEquipment>();
             Experience = experience;
+            Level = AdvanceLevel();
 
         }
 
@@ -45,6 +48,17 @@ namespace ZombieSurvivor
         public void KillZombie()
         {
             Experience++;
+
+            AdvanceLevel();
+        }
+
+        private string AdvanceLevel()
+        {
+            if (Experience >= 6)
+            {
+                return "Yellow";
+            }
+            return "Blue";
         }
     }
 }
