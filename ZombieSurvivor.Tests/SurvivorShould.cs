@@ -92,29 +92,44 @@ namespace ZombieSurvivor.Tests
         [Fact]
         public void GainOneExperienceAfterKillingOneZombie()
         {
-            survivor.KillZombie();
+            KillManyZombies(1);
 
             survivor.Experience.ShouldBe(1);
         }
 
         [Fact]
-        public void ShouldBeAtLevelBlueWithOneExperience()
+        public void ShouldBeAtLevelBlueAfterKillingOneZombie()
         {
-            survivor.KillZombie();
+            KillManyZombies(1);
             
             survivor.Level.ShouldBe("Blue");
         }
 
         [Fact]
-        public void ShouldBeAtLevelBlueWithSixExperience()
+        public void ShouldBeAtLevelYellowAfterKillingSevenZombies()
         {
-            for (var i = 0; i < 7; i++)
+            KillManyZombies(7);
+            
+            survivor.Experience.ShouldBe(7);
+            survivor.Level.ShouldBe("Yellow");
+        }
+
+        [Fact]
+        public void ShouldBeLevelOrangeAfterKillingNineteenZombies()
+        {
+            KillManyZombies(19);
+            
+            survivor.Experience.ShouldBe(19);
+            survivor.Level.ShouldBe("Orange");
+        }
+        
+        
+        private void KillManyZombies(int numberOfZombies)
+        {
+            for (var i = 0; i < numberOfZombies; i++)
             {
                 survivor.KillZombie();
             }
-            
-            survivor.Level.ShouldBe("Yellow");
         }
-       
     }
 }

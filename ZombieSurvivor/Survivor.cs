@@ -54,7 +54,11 @@ namespace ZombieSurvivor
 //    could this be designed better? as far as naming...responsibility? 
         private void AdvanceLevel()
         {
-            if (Experience > 6)
+            if (Experience > 18)
+            {
+                Level = "Orange";
+            }
+            else if(Experience > 6)
             {
                 Level = "Yellow";
             }
