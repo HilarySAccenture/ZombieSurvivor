@@ -122,7 +122,15 @@ namespace ZombieSurvivor.Tests
             survivor.Experience.ShouldBe(19);
             survivor.Level.ShouldBe("Orange");
         }
-        
+
+        [Fact]
+        public void ShouldBeLevelRedAfterKillingFortyFourZombies()
+        {
+            KillManyZombies(44);
+            
+            survivor.Experience.ShouldBe(44);
+            survivor.Level.ShouldBe("Red");
+        }
         
         private void KillManyZombies(int numberOfZombies)
         {
