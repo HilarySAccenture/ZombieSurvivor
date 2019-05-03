@@ -5,13 +5,7 @@ namespace ZombieSurvivor
 {
     public class Game
     {
-        private List<Survivor> _players = new List<Survivor>();
-
-        public List<Survivor> Players
-        {
-            get => _players;
-            set => _players = value;
-        }
+        public List<Survivor> Players { get; set; } = new List<Survivor>();
 
         public void AddSurvivor(Survivor survivor)
         {

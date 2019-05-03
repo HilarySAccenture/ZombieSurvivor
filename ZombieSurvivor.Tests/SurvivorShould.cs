@@ -47,7 +47,7 @@ namespace ZombieSurvivor.Tests
         }
 
         [Fact]
-        public void CannotHaveMoreThanTwoWounds()
+        public void HaveNoMoreThanTwoWounds()
         {
             for (var i = 0; i < 3; i++)
             {
@@ -58,7 +58,7 @@ namespace ZombieSurvivor.Tests
         }
 
         [Fact]
-        public void CanAcquireOnePieceOfEquipment()
+        public void AcquireOnePieceOfEquipment()
         {
             survivor.AcquireEquipment(katana);
 
@@ -66,7 +66,7 @@ namespace ZombieSurvivor.Tests
         }
 
         [Fact]
-        public void CanAcquireNoMoreThanFivePiecesOfEquipmentWhenZeroWounds()
+        public void AcquireNoMoreThanFivePiecesOfEquipmentWhenZeroWounds()
         {
             for (var i = 0; i < 10; i++)
             {
@@ -77,7 +77,7 @@ namespace ZombieSurvivor.Tests
         }
 
         [Fact]
-        public void LosesOneEquipmentCarryingCapacityWhenWoundedOnce()
+        public void LoseOneEquipmentCarryingCapacityWhenWoundedOnce()
         {
             var carryingCapacity = 5;
             for (var i = 0; i < carryingCapacity; i++)
@@ -87,6 +87,18 @@ namespace ZombieSurvivor.Tests
             survivor.Injure();
             
             survivor.Arsenal.Count.ShouldBe(4);   
-        } 
+        }
+
+        [Fact]
+        public void GainOneExperienceAfterKillingOneZombie()
+        {
+            survivor.KillZombie();
+
+            survivor.Experience.ShouldBe(1);
+        }
+        
+      
+        
+       
     }
 }

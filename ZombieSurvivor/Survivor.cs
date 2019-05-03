@@ -9,22 +9,23 @@ namespace ZombieSurvivor
         public string Name { get; }
         public int Wounds { get; private set; }
         public List<IEquipment> Arsenal { get; }
+        public int Experience { get; set; }
 
-        public Survivor(string name, int wounds = 0)
+        public Survivor(string name, int wounds = 0, int experience = 0)
         {
             Name = name;
             Wounds = wounds;
             Arsenal = new List<IEquipment>();
+            Experience = experience;
+
         }
 
         public void Injure()
         {
-            if (Wounds < 2)
-            {
-                Wounds++;
-            }
+            if (Wounds < 2)Wounds++;
 
             if (Arsenal.Count <= 0) return;
+            
             var lastEquipment = Arsenal.Count - 1;
             Arsenal.RemoveAt(lastEquipment);
         }
@@ -40,6 +41,10 @@ namespace ZombieSurvivor
             {
                 Arsenal.Add(equipment);
             }
+        }
+        public void KillZombie()
+        {
+            Experience++;
         }
     }
 }
