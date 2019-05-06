@@ -7,7 +7,7 @@ namespace ZombieSurvivor.Tests
 {
     public class SurvivorShould
     {
-        Survivor survivor = new Survivor("Sam", 0);
+        Survivor survivor = new Survivor("Sam");
         Katana katana = new Katana();
 
         [Fact]

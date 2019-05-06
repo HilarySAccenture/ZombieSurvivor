@@ -13,12 +13,12 @@ namespace ZombieSurvivor
         public string Level { get; set; }
 
 
-        public Survivor(string name, int wounds = 0, int experience = 0)
+        public Survivor(string name)
         {
             Name = name;
-            Wounds = wounds;
+            Wounds = 0;
             Arsenal = new List<IEquipment>();
-            Experience = experience;
+            Experience = 0;
             Level = "Blue";
 
         }

@@ -81,6 +81,17 @@ namespace ZombieSurvivor.Tests
             var result = game.AllPlayersAreDead();
             result.ShouldBeFalse();
         }
+
+        [Fact]
+        public void BeLevelBlueByDefault()
+        {
+            game.GetLevel();
+            
+            game.Level.ShouldBe("Blue");
+        }
+        
+     
+        
         
         private static void KillSurvivor(Survivor survivor)
         {
